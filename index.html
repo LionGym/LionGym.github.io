@@ -68,7 +68,7 @@
             position: relative;
         }
         ul li::before {
-            content: '✔️'; /* Pour les listes d'objectifs */
+            content: '✔️'; /* Pour les listes d'objectifs, valeurs */
             color: #ffcc00;
             position: absolute;
             left: 0;
@@ -126,15 +126,159 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 10px;
         }
+        .schedule ul, .prices ul { /* Style pour les listes dans horaires/tarifs */
+            list-style: none;
+            padding-left: 0;
+        }
+```
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lion Gym Muaythaï — Torcy</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header img { /* Style pour le logo */
+            max-width: 150px; /* Taille maximale du logo */
+            height: auto;
+            margin-bottom: 20px; /* Espace sous le logo */
+            border-radius: 50%; /* Pour un effet rond si souhaité, sinon supprimer */
+            background-color: #fff; /* Fond blanc pour le logo */
+            padding: 10px; /* Petit padding autour du logo */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.5em;
+            color: #ffcc00; /* Couleur d'accent pour le 🔥 */
+            margin-top: 10px;
+        }
+        section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            font-size: 2em;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        ul li::before {
+            content: '✔️'; /* Pour les listes d'objectifs, valeurs */
+            color: #ffcc00;
+            position: absolute;
+            left: 0;
+        }
+        .values-list li::before {
+            content: ''; /* Cache les puces par défaut pour les valeurs personnalisées */
+        }
+        .values-list li span {
+            font-weight: bold;
+            color: #ffcc00; /* Couleur d'accent pour les emojis des valeurs */
+            margin-right: 5px;
+        }
+        .call-to-action {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffcc00;
+            color: #222;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .call-to-action h2 {
+            border-bottom: none;
+            color: #222;
+        }
+        .call-to-action a {
+            display: inline-block;
+            background-color: #222;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .call-to-action a:hover {
+            background-color: #555;
+        }
+        .info-placeholder {
+            background-color: #eee;
+            padding: 20px;
+            border-left: 5px solid #ffcc00;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .gallery-item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+        .schedule ul, .prices ul { /* Style pour les listes dans horaires/tarifs */
+            list-style: none;
+            padding-left: 0;
+        }
+```
+
+```html
+       .schedule ul li, .prices ul li {
+            padding-left: 0;
+        }
+        .schedule ul li::before, .prices ul li::before {
+            content: ''; /* Pas de puce par défaut pour ces listes */
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-```
-
-```html
-           <img src="Médias/Entrée/da2e8831-c079-41b3-8ad1-7075036651e5.jpeg" alt="Logo Lion Gym Muaythaï">
+            <img src="media/inbound/da2e8831-c079-41b3-8ad1-7075036651e5.jpeg" alt="Logo Lion Gym Muaythaï">
             <h1>Lion Gym Muaythaï</h1>
             <p>🔥 Réveille le combattant qui est en toi</p>
             <p>Torcy</p>
@@ -182,57 +326,49 @@
             </ul>
         </section>
 
-        <section>
+        <section class="schedule">
             <h2>Nos Horaires de Cours</h2>
-            <div class="info-placeholder">
-                <p><strong>[À COMPLÉTER]</strong> Ici, vous pourrez insérer une grille horaire claire avec les différents cours proposés (ex: Lundi 18h-19h30 : Muay Thai Tous Niveaux).</p>
-                <p>Exemple de format :</p>
-                <ul>
-                    <li>Lundi : 18h-19h30 - Muay Thai Débutant ; 19h30-21h - Muay Thai Confirmé</li>
-                    <li>Mardi : 12h-13h - Fitness Boxing ; 18h-19h30 - Préparation Physique</li>
-                </ul>
-            </div>
+            <h3>Cours collectif, Muaythaï</h3>
+            <ul>
+                <li>Mardi : 20h30-22h00</li>
+                <li>Jeudi : 20h30–22h00</li>
+                <li>Dimanche : 11h00–13h00 (Cross training / Sparring technique / travail individuel paos)</li>
+            </ul>
+            <h3>Cours individuel</h3>
+            <ul>
+                <li>Du lundi au jeudi : 8h30 à 12h30</li>
+                <li>Dimanche : 9h00-11h00</li>
+            </ul>
+            <p><em>Sous réserve de disponibilité</em></p>
         </section>
 
-        <section>
+        <section class="prices">
             <h2>Nos Tarifs</h2>
-            <div>
-                <ul>
-                    <li>Abonnement Mensuel : 40€</li>
-                    <li>Abonnement Annuel : 350€</li>
-                    <li>Carte 10 Séances : 65€</li>
-                    <li>Cours d'essai : Gratuit / 10€</li>
-                </ul>
-            </div>
+            <h3>Cours collectif</h3>
+            <ul>
+                <li>Abonnement Mensuel : 40€</li>
+                <li>Abonnement Annuel : 350€</li>
+            </ul>
+            <h3>Cours individuel</h3>
+            <ul>
+                <li>Forfait 10 Séances : 400€</li>
+                <li>Forfait 20 Séances : 700€</li>
+            </ul>
+            <h3>Cours collectif pendant les vacances scolaires</h3>
+            <ul>
+                <li>10€ la séance</li>
+            </ul>
+            <ul>
+                <li>Cours d'essai : Gratuit (1 cours)</li>
+            </ul>
         </section>
 
         <section>
-            <h2>Galerie Photos & Vidéos</h2>
-            <div class="gallery-item">
-                <img src="Médias/Entrée/66640918-f7d7-4195-82d8-fbc1461e8534.jpeg" alt="Lionel, coach Lion Gym Muaythaï">
-                <p>Le coach Lionel, prêt à vous accompagner dans votre transformation.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="Médias/Entrée/cd25a367-6657-47bb-afbe-732a833ae04a.jpeg" alt="Ring de boxe Lion Gym Muaythaï">
-                <p>Notre ring, là où la passion et la discipline se rencontrent.</p>
-            </div>
-            <div class="gallery-item">
+            <h2>À propos de Lionel</h2>
 ```
 
 ```html
-               <img src="Médias/Entrée/88e1ebdb-1d9c-45f7-ae04-25963117c1a5.jpeg" alt="Équipements d'entraînement Lion Gym Muaythaï">
-                <p>Une partie de nos équipements de préparation physique pour des entraînements complets.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="Médias/Entrée/a26888e7-159d-4089-b774-95856011bf69.jpeg" alt="Cours de groupe Lion Gym Muaythaï">
-                <p>L'énergie du groupe et l'accompagnement du coach lors de nos sessions d'entraînement.</p>
-            </div>
-            <div class="gallery-item">
-                <img src="Médias/Entrée/2763d851-9b3d-44e1-8f5e-5f67e75b73ef.jpeg" alt="Lionel en action, sparring Muaythaï">
-                <p>Lionel en pleine action, démontrant l'intensité du Muay Thaï.</p>
-            </div>
-            <div class="info-placeholder">
-                <p>Vous pouvez toujours ajouter plus de photos et vidéos pour montrer d'autres facettes du club !</p>
+               <p>Vous pouvez toujours ajouter plus de photos et vidéos pour montrer d'autres facettes du club !</p>
             </div>
         </section>
 
@@ -256,4 +392,3 @@
 </html>
 ```
 ---
-              
